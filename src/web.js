@@ -1,10 +1,11 @@
 import { select } from "@inquirer/prompts";
-import { URL, usuario, senha } from "./user.js";
+import { URLsigaa, usuario, senha } from "./user.js";
+import { navigatePortalDiscente } from "./menus/portalDiscente.js";
 
 export async function navigateLogin(page) {
   console.log("started here");
 
-  await page.goto(URL);
+  await page.goto(URLsigaa + "/verTelaLogin.do");
   await page.setViewport({ width: 1080, height: 1024 });
 
   await page.type('[name="user.login"]', usuario);
@@ -12,7 +13,6 @@ export async function navigateLogin(page) {
 
   await page.click('[name="entrar"]');
 
-  console.log(URL);
   console.log(usuario);
   console.log(senha);
 
@@ -38,22 +38,31 @@ export async function navigateMainMenu(page) {
       description: `Ir para ${item.name}`,
     })),
   });
-  console.log(answer);
+
+  switch (answer) {
+    case "discente":
+      console.log("Indo para Área do Discente");
+      navigatePortalDiscente(page);
+      break;
+    case "portal_avaliacao":
+      console.log("Indo para Portal de Avaliação");
+      break;
+    default:
+      console.log(
+        `Módulo/portal indisponível no momento. Erro na escolha do módulo/portal - ${answer}.`
+      );
+  }
 }
 
 function extractMainMenuLinks(evalHTML) {
-  // Define the array to hold the result
-  let result = [];
+  const onClassPattern =
+    /<li class="([^"]*?\bon\b[^"]*?)">.*?<span class="texto">(.*?)<\/span>.*?<\/li>/gs;
+  const result = [];
 
-  // Define a regex pattern to match list items with class 'on'
-  let pattern =
-    /<li class="([^"]+) on">.*?<a href="([^"]+)">.*?<span class="texto">(.*?)<\/span>/g;
-
-  // Use the pattern to extract matches from the HTML string
   let match;
-  while ((match = pattern.exec(evalHTML)) !== null) {
-    let name = match[3].replace(/\s+/g, " ").trim(); // Clean up the name
-    let value = match[2];
+  while ((match = onClassPattern.exec(evalHTML)) !== null) {
+    const value = match[1].replace(/\s*\bon\b\s*/g, "");
+    const name = match[2].replace(/<br>/g, " ").trim();
     result.push({ name, value });
   }
 
