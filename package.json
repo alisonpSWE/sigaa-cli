@@ -1,0 +1,20 @@
+{
+  "name": "cli-test",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.7",
+    "@inquirer/select": "^2.4.7",
+    "chalk": "^5.3.0",
+    "inquirer": "^10.1.8",
+    "puppeteer": "^22.15.0"
+  }
+}
