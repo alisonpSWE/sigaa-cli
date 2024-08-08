@@ -1,11 +1,13 @@
-import { select } from "@inquirer/prompts";
+import { select, confirm } from "@inquirer/prompts";
 import { URLsigaa, usuario, senha } from "./user.js";
 import { navigatePortalDiscente } from "./menus/portalDiscente.js";
+import { navigateToPage } from "./utils/utils.js";
 
 export async function navigateLogin(page) {
   console.log("started here");
 
-  await page.goto(URLsigaa + "/verTelaLogin.do");
+  await navigateToPage(page, URLsigaa + "/verTelaLogin.do");
+
   await page.setViewport({ width: 1080, height: 1024 });
 
   await page.type('[name="user.login"]', usuario);
