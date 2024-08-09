@@ -47,7 +47,6 @@ export async function navigateMainMenu(page) {
       navigatePortalDiscente(page);
       break;
     case "portal_avaliacao":
-      console.log("Indo para Portal de Avaliação");
       break;
     default:
       console.log(
