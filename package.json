@@ -4,7 +4,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest --watchAll --verbose"
   },
   "keywords": [],
   "author": "alisonpsufc",
@@ -17,5 +18,9 @@
     "inquirer": "^10.1.8",
     "ora": "^8.0.1",
     "puppeteer": "^22.15.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0"
   }
 }
