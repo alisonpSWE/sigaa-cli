@@ -1,3 +1,5 @@
+import { confirm } from "@inquirer/prompts";
+
 export async function navigateToPage(page, url) {
   try {
     await page.goto(url);
