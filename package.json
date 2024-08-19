@@ -15,6 +15,7 @@
     "@inquirer/prompts": "^5.3.7",
     "@inquirer/select": "^2.4.7",
     "chalk": "^5.3.0",
+    "cheerio": "^1.0.0",
     "inquirer": "^10.1.8",
     "ora": "^8.0.1",
     "puppeteer": "^22.15.0"
