@@ -1,4 +1,4 @@
-import { extrairConteudoTurmas } from "../utils/stringManipulationUtil.js";
+import { extrairConteudoTurmas } from "../src/utils/stringManipulationUtil.js";
 
 describe("Menu Turma", () => {
   it("Extrai dados do conteudo", () => {
