@@ -1,6 +1,7 @@
 import { URLsigaa } from "../user.js";
 import { navigateToPage } from "../utils/utils.js";
 import { select } from "@inquirer/prompts";
+import { navigateMenuTurma } from "./menuTurma.js";
 
 export async function navigatePortalDiscente(page) {
   await navigateToPage(page, URLsigaa + "/verPortalDiscente.do");
@@ -24,6 +25,7 @@ export async function navigatePortalDiscente(page) {
 
   let idLinkTurma = await extractLinkId(turmasPortalTxt, answer);
   await page.click(`[id="${idLinkTurma}"]`);
+  navigateMenuTurma(page);
 }
 
 function extractLinkId(evalHTML, valorAlvo) {
