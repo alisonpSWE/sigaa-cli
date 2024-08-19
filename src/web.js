@@ -4,8 +4,6 @@ import { navigatePortalDiscente } from "./menus/portalDiscente.js";
 import { navigateToPage } from "./utils/utils.js";
 
 export async function navigateLogin(page) {
-  console.log("started here");
-
   await navigateToPage(page, URLsigaa + "/verTelaLogin.do");
 
   await page.setViewport({ width: 1080, height: 1024 });
