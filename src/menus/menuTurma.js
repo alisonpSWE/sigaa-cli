@@ -4,7 +4,10 @@ import chalk from "chalk";
 
 export async function navegarMenuDeTurmas(page) {
   console.log(page.url());
+  escolhaMaterial(page);
+}
 
+async function escolhaMaterial(page) {
   await page.waitForSelector("#conteudo");
   const elementoConteudo = await page.$("#conteudo");
 
@@ -17,7 +20,7 @@ export async function navegarMenuDeTurmas(page) {
   );
   const turmasConteudo = extrairConteudoTurmas(conteudoHTML);
 
-  const escolhaMaterial = await select({
+  const selecionarMaterial = await select({
     pageSize: 15,
     loop: false,
     message: "Selecione o material",
@@ -31,5 +34,5 @@ export async function navegarMenuDeTurmas(page) {
     ]),
   });
 
-  return escolhaMaterial;
+  return selecionarMaterial;
 }
