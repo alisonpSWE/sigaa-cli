@@ -2,7 +2,7 @@ import { extrairConteudoTurmas } from "../utils/stringManipulationUtil.js";
 import { select, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 
-export async function navegarParaMenuDeTurmas(page) {
+export async function navegarMenuDeTurmas(page) {
   console.log(page.url());
 
   await page.waitForSelector("#conteudo");
