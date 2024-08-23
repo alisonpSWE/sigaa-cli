@@ -20,15 +20,15 @@ export async function navigateLogin(page) {
   //await browser.close();
 }
 
-async function tratarTelasAviso() {
-  esperarCarregamentoTotalHtml(page);
+async function tratarTelasAviso(page) {
+  await esperarCarregamentoTotalHtml(page);
   if (await page.url().endsWith("telaAvisoLogon.jsf")) {
     await manuseiarTelaAvisoLogon(page);
   }
 }
 
 export async function navigateMainMenu(page) {
-  tratarTelasAviso();
+  tratarTelasAviso(page);
   await page.waitForSelector("#modulos");
   await page.waitForSelector("#portais");
   const el = await page.$("#portais");
