@@ -21,7 +21,7 @@ export async function navigateLogin(page) {
 }
 
 async function tratarTelasAviso() {
-  esperarCarregamentoTotalHtml();
+  esperarCarregamentoTotalHtml(page);
   if (await page.url().endsWith("telaAvisoLogon.jsf")) {
     await manuseiarTelaAvisoLogon(page);
   }
