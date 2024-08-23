@@ -1,6 +1,6 @@
 import { select, confirm } from "@inquirer/prompts";
 import { URLsigaa, usuario, senha } from "./user.js";
-import { navigatePortalDiscente } from "./menus/portalDiscente.js";
+import { navegarPortalDiscente } from "./menus/portalDiscente.js";
 import { navigateToPage, esperarCarregamentoTotalHtml } from "./utils/utils.js";
 import { manuseiarTelaAvisoLogon } from "./utils/telasAviso.js";
 
@@ -51,7 +51,7 @@ export async function navigateMainMenu(page) {
   switch (answer) {
     case "discente":
       console.log("Indo para Área do Discente");
-      navigatePortalDiscente(page);
+      navegarPortalDiscente(page);
       break;
     case "portal_avaliacao":
       break;
