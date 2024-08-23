@@ -11,3 +11,9 @@ export async function navigateToPage(page, url) {
     }
   }
 }
+
+export async function esperarCarregamentoTotalHtml(page) {
+  await page.waitForNavigation({
+    waitUntil: "networkidle0",
+  });
+}

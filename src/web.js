@@ -2,7 +2,6 @@ import { select, confirm } from "@inquirer/prompts";
 import { URLsigaa, usuario, senha } from "./user.js";
 import { navigatePortalDiscente } from "./menus/portalDiscente.js";
 import { navigateToPage } from "./utils/utils.js";
-import { manuseiarTelaAvisoLogon } from "./utils/telasAviso.js";
 
 export async function navigateLogin(page) {
   await navigateToPage(page, URLsigaa + "/verTelaLogin.do");
@@ -21,9 +20,6 @@ export async function navigateLogin(page) {
 }
 
 export async function navigateMainMenu(page) {
-  if (page.url().endswith("telaAvisoLogon.jsf")) {
-    manuseiarTelaAvisoLogon();
-  }
   await page.waitForSelector("#modulos");
   await page.waitForSelector("#portais");
   const el = await page.$("#portais");
