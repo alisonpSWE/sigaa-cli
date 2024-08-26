@@ -31,3 +31,26 @@ export function extrairConteudoTurmas(html) {
 
   return sections;
 }
+
+export function extrairConteudoParagrafos(htmlString) {
+  const $ = cheerio.load(htmlString);
+
+  const dataString = $(".descricaoOperacao h4")
+    .text()
+    .match(/\d{2}\/\d{2}\/\d{4} \d{2}:\d{2}/)?.[0];
+
+  let paragrafos = [];
+  $("p").each((i, elem) => {
+    const conteudo = $(elem).text().trim();
+    if (conteudo) {
+      paragrafos.push(conteudo);
+    }
+  });
+
+  // Adiciona a data no comeco do array
+  if (dataString) {
+    paragrafos.unshift(dataString);
+  }
+
+  return paragrafos;
+}
