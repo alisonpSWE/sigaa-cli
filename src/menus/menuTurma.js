@@ -7,9 +7,13 @@ import { select, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 
 let atualConteudosHTMLString;
+let atualDadosUltimaNoticia;
 
 export async function navegarMenuDeTurmas(page) {
   atualConteudosHTMLString = await ConteudosHTMLString(page);
+  atualDadosUltimaNoticia = await extrairConteudoParagrafos(
+    atualConteudosHTMLString
+  );
   const opcaoDeNavegacao = await mostrarMenuPrincipal();
 
   if (opcaoDeNavegacao === "escolherMaterial") {
@@ -29,12 +33,32 @@ async function ConteudosHTMLString(page) {
 }
 
 async function mostrarMenuPrincipal() {
+  let atualUltimaNoticiaComTempoAtras = await ultimaNoticiaComTempoAtras();
+
   return await select({
     pageSize: 10,
     loop: false,
     message: "O que deseja fazer?",
-    choices: [{ name: "Escolher Material", value: "escolherMaterial" }],
+    choices: [
+      { name: atualUltimaNoticiaComTempoAtras, value: "ultimaNoticia" },
+      { name: "Escolher Material", value: "escolherMaterial" },
+    ],
   });
+}
+
+async function ultimaNoticiaComTempoAtras() {
+  const atualTempoAtras = tempoAtras(atualDadosUltimaNoticia[0]); // a string com a data e horario fica no começo do array atualDadosUltimaNoticia
+  if (atualTempoAtras[0] === 0) {
+    return chalk.red(
+      `Ver ultima noticia (${atualTempoAtras[0]} dias e ${atualTempoAtras[1]} horas atrás.)`
+    );
+  } else if (atualTempoAtras[0] < 7) {
+    return chalk.redBright(
+      `Ver ultima noticia (${atualTempoAtras[0]} dias e ${atualTempoAtras[1]} horas atrás.)`
+    );
+  } else {
+    return `Ver ultima noticia (${atualTempoAtras[0]} dias e ${atualTempoAtras[1]} horas atrás.)`;
+  }
 }
 
 async function escolhaMaterial() {
