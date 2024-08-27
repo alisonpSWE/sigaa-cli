@@ -21,6 +21,7 @@ export async function navigateLogin(page) {
 }
 
 async function tratarTelasAviso(page) {
+  console.clear();
   await esperarCarregamentoTotalHtml(page);
   if (await page.url().endsWith("telaAvisoLogon.jsf")) {
     await manuseiarTelaAvisoLogon(page);
@@ -29,6 +30,7 @@ async function tratarTelasAviso(page) {
 
 export async function navigateMainMenu(page) {
   tratarTelasAviso(page);
+  console.clear();
   await page.waitForSelector("#modulos");
   await page.waitForSelector("#portais");
   const el = await page.$("#portais");

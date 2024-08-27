@@ -5,6 +5,7 @@ import { navegarMenuDeTurmas } from "./menuTurma.js";
 
 export async function navegarPortalDiscente(page) {
   await navigateToPage(page, URLsigaa + "/verPortalDiscente.do");
+  console.clear();
 
   const elementoTabelaTurmas = await page.$("#turmas-portal");
   if (!elementoTabelaTurmas) {
