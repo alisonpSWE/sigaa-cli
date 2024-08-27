@@ -4,7 +4,7 @@ const isDevMode = process.env.NODE_ENV === "development";
 
 export async function manuseiarTelaAvisoLogon(page) {
   if (isDevMode) {
-    page.click('[value="Continuar >>"]');
+    return page.click('[value="Continuar >>"]');
   }
 
   console.log("Mensagem oficial de aviso em: " + page.url());
