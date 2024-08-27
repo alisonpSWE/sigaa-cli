@@ -3,8 +3,20 @@ import { select, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 
 export async function navegarMenuDeTurmas(page) {
-  console.log(page.url());
-  escolhaMaterial(page);
+  const opcaoDeNavegacao = await mostrarMenuPrincipal();
+
+  if (opcaoDeNavegacao === "escolherMaterial") {
+    await escolhaMaterial(page);
+  }
+}
+
+async function mostrarMenuPrincipal() {
+  return await select({
+    pageSize: 10,
+    loop: false,
+    message: "O que deseja fazer?",
+    choices: [{ name: "Escolher Material", value: "escolherMaterial" }],
+  });
 }
 
 async function escolhaMaterial(page) {
