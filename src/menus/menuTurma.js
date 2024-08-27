@@ -14,7 +14,7 @@ export async function navegarMenuDeTurmas(page) {
   atualDadosUltimaNoticia = await extrairConteudoParagrafos(
     atualConteudosHTMLString
   );
-  const opcaoDeNavegacao = await mostrarMenuPrincipal();
+  const opcaoDeNavegacao = await mostrarMenuPrincipal(page);
 
   if (opcaoDeNavegacao === "escolherMaterial") {
     await escolhaMaterial();
@@ -32,21 +32,27 @@ async function ConteudosHTMLString(page) {
   return await elementoConteudo.evaluate((elemento) => elemento.innerHTML);
 }
 
-async function mostrarMenuPrincipal() {
-  let atualUltimaNoticiaComTempoAtras = await ultimaNoticiaComTempoAtras();
-
+async function mostrarMenuPrincipal(page) {
+  let atualUltimaNoticiaComTempoAtras = await ultimaNoticiaComTempoAtras(page);
   return await select({
     pageSize: 10,
     loop: false,
     message: "O que deseja fazer?",
     choices: [
-      { name: atualUltimaNoticiaComTempoAtras, value: "ultimaNoticia" },
+      atualUltimaNoticiaComTempoAtras
+        ? { name: atualUltimaNoticiaComTempoAtras, value: "verUltimaNoticia" }
+        : null,
       { name: "Escolher Material", value: "escolherMaterial" },
-    ],
+    ].filter((choice) => choice !== null),
   });
 }
 
-async function ultimaNoticiaComTempoAtras() {
+async function ultimaNoticiaComTempoAtras(page) {
+  const noticiaElement = await page.$("#ultimaNoticia");
+  if (!noticiaElement) {
+    return null;
+  }
+
   const atualTempoAtras = tempoAtras(atualDadosUltimaNoticia[0]); // a string com a data e horario fica no começo do array atualDadosUltimaNoticia
   if (atualTempoAtras[0] === 0) {
     return chalk.red(
