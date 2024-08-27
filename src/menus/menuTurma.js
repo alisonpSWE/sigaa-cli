@@ -32,18 +32,19 @@ async function escolhaMaterial(page) {
   );
   const turmasConteudo = extrairConteudoTurmas(conteudoHTML);
 
+  const choices = turmasConteudo.reduce((conteudos, turma) => {
+    conteudos.push(new Separator(chalk.yellowBright(turma.titulo)));
+    turma.itens.forEach((item) => {
+      conteudos.push({ name: item.nome, value: item.nome });
+    });
+    return conteudos;
+  }, []);
+
   const selecionarMaterial = await select({
     pageSize: 15,
     loop: false,
     message: "Selecione o material",
-    choices: turmasConteudo.flatMap((turma) => [
-      new Separator(),
-      new Separator(chalk.yellowBright(turma.titulo)),
-      ...turma.itens.map((item) => ({
-        name: item.nome,
-        value: item.nome,
-      })),
-    ]),
+    choices,
   });
 
   return selecionarMaterial;
