@@ -1,8 +1,6 @@
 import { confirm } from "@inquirer/prompts";
 
-if (process.env.NODE_ENV === "development") {
-  const isDevMode = true;
-}
+const isDevMode = process.env.NODE_ENV === "development";
 
 export async function manuseiarTelaAvisoLogon(page) {
   if (isDevMode) {
