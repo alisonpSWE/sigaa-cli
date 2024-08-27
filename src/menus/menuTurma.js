@@ -26,7 +26,7 @@ async function escolhaMaterial(page) {
     message: "Selecione o material",
     choices: turmasConteudo.flatMap((turma) => [
       new Separator(),
-      new Separator(chalk.red(turma.titulo)),
+      new Separator(chalk.yellowBright(turma.titulo)),
       ...turma.itens.map((item) => ({
         name: item.nome,
         value: item.nome,
