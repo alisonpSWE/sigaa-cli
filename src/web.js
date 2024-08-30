@@ -13,11 +13,6 @@ export async function navigateLogin(page) {
   await page.type('[name="user.senha"]', senha);
 
   await page.click('[name="entrar"]');
-
-  console.log(usuario);
-  console.log(senha);
-
-  //await browser.close();
 }
 
 async function tratarTelasAviso(page) {
