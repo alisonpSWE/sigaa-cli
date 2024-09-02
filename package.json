@@ -19,7 +19,8 @@
     "cheerio": "^1.0.0",
     "inquirer": "^10.1.8",
     "ora": "^8.0.1",
-    "puppeteer": "^22.15.0"
+    "puppeteer": "^22.15.0",
+    "x-default-browser": "^0.5.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
