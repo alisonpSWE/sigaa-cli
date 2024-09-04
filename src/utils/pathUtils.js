@@ -1,4 +1,4 @@
-function obterPastaDownload() {
+export async function obterPastaDownload() {
   const diretorioHome = os.homedir();
 
   if (os.platform() === "win32") {
