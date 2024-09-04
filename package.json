@@ -20,6 +20,8 @@
     "inquirer": "^10.1.8",
     "ora": "^8.0.1",
     "puppeteer": "^22.15.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-user-preferences": "^2.4.1",
     "x-default-browser": "^0.5.2"
   },
   "devDependencies": {
