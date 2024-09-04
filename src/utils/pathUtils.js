@@ -1,3 +1,6 @@
+import os from "os";
+import path from "path";
+
 export async function obterPastaDownload() {
   const diretorioHome = os.homedir();
 
