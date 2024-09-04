@@ -17,3 +17,17 @@ export async function esperarCarregamentoTotalHtml(page) {
     waitUntil: "networkidle0",
   });
 }
+
+export async function openPDF(filePath) {
+  const platform = process.platform;
+
+  if (platform === "win32") {
+    exec(`start "" "${filePath}"`);
+  } else if (platform === "darwin") {
+    exec(`open "${filePath}"`);
+  } else if (platform === "linux") {
+    exec(`xdg-open "${filePath}"`);
+  } else {
+    console.log("Plataforma não suportada.");
+  }
+}
