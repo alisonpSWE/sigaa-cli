@@ -5,6 +5,7 @@ import {
 } from "../utils/stringManipulationUtil.js";
 import { select, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
+import { diretorioDownload } from "../utils/pathUtils.js";
 
 let atualConteudosHTMLString;
 let atualDadosUltimaNoticia;
