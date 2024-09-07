@@ -1,5 +1,6 @@
 import { navigateLogin, navigateMainMenu } from "./web.js";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-extra";
+import userPreferencesPlugin from "puppeteer-extra-plugin-user-preferences";
 
 let launchOptions = {};
 
