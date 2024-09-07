@@ -14,6 +14,20 @@ if (process.env.NODE_ENV === "development") {
   };
 }
 
+puppeteer.use(
+  userPreferencesPlugin({
+    userPrefs: {
+      download: {
+        prompt_for_download: false,
+        open_pdf_in_system_reader: false,
+      },
+      plugins: {
+        always_open_pdf_externally: true,
+      },
+    },
+  })
+);
+
 const browser = await puppeteer.launch(launchOptions);
 
 const page = await browser.newPage();
