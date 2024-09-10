@@ -1,8 +1,10 @@
 import { select, confirm } from "@inquirer/prompts";
-import { URLsigaa, usuario, senha } from "./user.js";
+import { URLsigaa } from "./web.js";
 import { navegarPortalDiscente } from "./menus/portalDiscente.js";
 import { navigateToPage, esperarCarregamentoTotalHtml } from "./utils/utils.js";
 import { manuseiarTelaAvisoLogon } from "./utils/telasAviso.js";
+
+export const URLsigaa = "https://si3.ufc.br/sigaa";
 
 export async function navigateLogin(page) {
   await navigateToPage(page, URLsigaa + "/verTelaLogin.do");

@@ -1,4 +1,4 @@
-import { URLsigaa } from "../user.js";
+import { URLsigaa } from "../web.js";
 import { navigateToPage } from "../utils/utils.js";
 import { select } from "@inquirer/prompts";
 import { navegarMenuDeTurmas } from "./menuTurma.js";
