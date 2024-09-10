@@ -20,21 +20,23 @@ export async function navegarMenuDeTurmas(page) {
 
   if (opcaoDeNavegacao === "escolherMaterial") {
     const nomeMaterial = await escolhaMaterial();
-    await page.evaluate(async (nomeMaterial) => {
-      const link = Array.from(document.querySelectorAll("a")).find((el) =>
-        el.textContent.includes(nomeMaterial)
-      );
-      if (link) {
-        console.log(`Baixando ${nomeMaterial}`);
-        link.click();
-      }
-    }, nomeMaterial);
 
     const dirArquivoBaixado = diretorioDownload(nomeMaterial);
     if (await verificarArquivoExiste(dirArquivoBaixado)) {
-      setTimeout(() => console.log("Baixando arquivo ..."), 10000);
+      openPDF(dirArquivoBaixado);
+    } else {
+      await page.evaluate(async (nomeMaterial) => {
+        const link = Array.from(document.querySelectorAll("a")).find((el) =>
+          el.textContent.includes(nomeMaterial)
+        );
+        if (link) {
+          link.click();
+        }
+      }, nomeMaterial);
+      console.log(`Baixando ${nomeMaterial}`);
+      await sleep(10000);
+      openPDF(dirArquivoBaixado);
     }
-    openPDF(dirArquivoBaixado);
   }
 }
 
