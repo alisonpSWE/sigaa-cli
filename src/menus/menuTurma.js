@@ -6,6 +6,7 @@ import {
 import { select, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 import { diretorioDownload } from "../utils/pathUtils.js";
+import { openPDF, verificarArquivoExiste } from "../utils/utils.js";
 
 let atualConteudosHTMLString;
 let atualDadosUltimaNoticia;
@@ -18,7 +19,22 @@ export async function navegarMenuDeTurmas(page) {
   const opcaoDeNavegacao = await mostrarMenuPrincipal(page);
 
   if (opcaoDeNavegacao === "escolherMaterial") {
-    await escolhaMaterial();
+    const nomeMaterial = await escolhaMaterial();
+    await page.evaluate(async (nomeMaterial) => {
+      const link = Array.from(document.querySelectorAll("a")).find((el) =>
+        el.textContent.includes(nomeMaterial)
+      );
+      if (link) {
+        console.log(`Baixando ${nomeMaterial}`);
+        link.click();
+      }
+    }, nomeMaterial);
+
+    const dirArquivoBaixado = diretorioDownload(nomeMaterial);
+    if (await verificarArquivoExiste(dirArquivoBaixado)) {
+      setTimeout(() => console.log("Baixando arquivo ..."), 10000);
+    }
+    openPDF(dirArquivoBaixado);
   }
 }
 
