@@ -6,7 +6,7 @@ import {
 import { select, Separator } from "@inquirer/prompts";
 import chalk from "chalk";
 import { diretorioDownload } from "../utils/pathUtils.js";
-import { openPDF, verificarArquivoExiste } from "../utils/utils.js";
+import { openPDF, verificarArquivoExiste, sleep } from "../utils/utils.js";
 
 let atualConteudosHTMLString;
 let atualDadosUltimaNoticia;

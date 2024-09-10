@@ -44,3 +44,5 @@ export async function verificarArquivoExiste(dirArquivo) {
   }
   return true;
 }
+
+export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
