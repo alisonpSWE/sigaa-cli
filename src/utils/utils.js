@@ -1,4 +1,7 @@
+import { exec } from "child_process";
+import fs from "fs";
 import { confirm } from "@inquirer/prompts";
+import path from "path";
 
 export async function navigateToPage(page, url) {
   try {
@@ -20,13 +23,15 @@ export async function esperarCarregamentoTotalHtml(page) {
 
 export async function openPDF(filePath) {
   const platform = process.platform;
+  const resolvedFilePath = path.resolve(filePath);
+  console.log(resolvedFilePath);
 
   if (platform === "win32") {
-    exec(`start "" "${filePath}"`);
+    exec(`start "" "${resolvedFilePath}"`);
   } else if (platform === "darwin") {
-    exec(`open "${filePath}"`);
+    exec(`open "${resolvedFilePath}"`);
   } else if (platform === "linux") {
-    exec(`xdg-open "${filePath}"`);
+    exec(`xdg-open "${resolvedFilePath}"`);
   } else {
     console.log("Plataforma não suportada.");
   }
