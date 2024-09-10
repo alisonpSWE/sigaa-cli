@@ -24,7 +24,6 @@ export async function esperarCarregamentoTotalHtml(page) {
 export async function openPDF(filePath) {
   const platform = process.platform;
   const resolvedFilePath = path.resolve(filePath);
-  console.log(resolvedFilePath);
 
   if (platform === "win32") {
     exec(`start "" "${resolvedFilePath}"`);
