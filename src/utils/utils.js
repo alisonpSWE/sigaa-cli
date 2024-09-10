@@ -36,3 +36,11 @@ export async function openPDF(filePath) {
     console.log("Plataforma não suportada.");
   }
 }
+
+export async function verificarArquivoExiste(dirArquivo) {
+  const existe = fs.existsSync(dirArquivo);
+  if (!existe) {
+    return false;
+  }
+  return true;
+}
