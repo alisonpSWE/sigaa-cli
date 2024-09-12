@@ -1,4 +1,4 @@
-import { select, confirm } from "@inquirer/prompts";
+import { select } from "@inquirer/prompts";
 import { navegarPortalDiscente } from "./menus/portalDiscente.js";
 import { navigateToPage, esperarCarregamentoTotalHtml } from "./utils/utils.js";
 import { manuseiarTelaAvisoLogon } from "./utils/telasAviso.js";
