@@ -1,16 +1,21 @@
 import { select, confirm } from "@inquirer/prompts";
-import { URLsigaa } from "./web.js";
 import { navegarPortalDiscente } from "./menus/portalDiscente.js";
 import { navigateToPage, esperarCarregamentoTotalHtml } from "./utils/utils.js";
 import { manuseiarTelaAvisoLogon } from "./utils/telasAviso.js";
+import dotenv from "dotenv";
 
 export const URLsigaa = "https://si3.ufc.br/sigaa";
+dotenv.config();
+
+let usuario = process.env.USER_NAME;
+let senha = process.env.USER_PASSWORD;
 
 export async function navigateLogin(page) {
   await navigateToPage(page, URLsigaa + "/verTelaLogin.do");
 
   await page.setViewport({ width: 1080, height: 1024 });
 
+  console.log("Logando com usuário: " + usuario);
   await page.type('[name="user.login"]', usuario);
   await page.type('[name="user.senha"]', senha);
 
