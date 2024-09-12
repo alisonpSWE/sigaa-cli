@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "type": "module",
+  "bin": {
+    "sigaacli": "./src/index.js"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "NODE_ENV=development node src/index.js",
