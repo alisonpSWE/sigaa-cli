@@ -22,7 +22,13 @@ if (process.env.NODE_ENV === "development") {
     headless: false,
     devtools: false,
     slowMo: 0,
-    timeout: 30000,
+    timeout: 60000,
+    args: ["--enable-logging", "--v=1"],
+  };
+} else {
+  launchOptions = {
+    slowMo: 0,
+    timeout: 60000,
     args: ["--enable-logging", "--v=1"],
   };
 }
