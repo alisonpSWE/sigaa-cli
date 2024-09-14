@@ -1,12 +1,18 @@
 # SIGAA-UFC CLI
 
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
 ```
 Aplicação que utiliza Puppeteer para navegar no site do SIGAA-UFC via Linha de Comando (CLI)
 ```
 
 No momento, a aplicação oferece funcionalidade de baixar materiais PDF da turma diretamente para a pasta "Downloads" e abri-los
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+## Capturas de Tela
+
+![Screenshot 1](/docs/screenshot1.png)
+
+![Screenshot 2](/docs/screenshot2.png)
 
 ## Funcionalidades
 
