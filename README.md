@@ -10,9 +10,9 @@ No momento, a aplicação oferece funcionalidade de baixar materiais PDF da turm
 
 ## Capturas de Tela
 
-![Screenshot 1](/docs/screenshot1.png)
+<img src="/docs/screenshot1.png" alt="Seleção de módulo" width="380"/>
 
-![Screenshot 2](/docs/screenshot2.png)
+<img src="/docs/screenshot2.png" alt="Seleção de material" width="380"/>
 
 ## Funcionalidades
 
