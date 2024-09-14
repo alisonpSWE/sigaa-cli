@@ -1,4 +1,15 @@
-# SIGAA-UFC CLI
+<div align="center">
+<pre>
+ _____ _____ _____   ___    ___         _____  _     _____ 
+/  ___|_   _|  __ \ / _ \  / _ \       /  __ \| |   |_   _|
+\ `--.  | | | |  \// /_\ \/ /_\ \______| /  \/| |     | |  
+ `--. \ | | | | __ |  _  ||  _  |______| |    | |     | |  
+/\__/ /_| |_| |_\ \| | | || | | |      | \__/\| |_____| |_ 
+\____/ \___/ \____/\_| |_/\_| |_/       \____/\_____/\___/ 
+                                                           
+                                                           
+</pre>
+</div>
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
@@ -10,9 +21,11 @@ No momento, a aplicação oferece funcionalidade de baixar materiais PDF da turm
 
 ## Capturas de Tela
 
+<div align="center">
 <img src="/docs/screenshot1.png" alt="Seleção de módulo" width="380"/>
 
 <img src="/docs/screenshot2.png" alt="Seleção de material" width="380"/>
+</div>
 
 ## Funcionalidades
 
