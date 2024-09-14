@@ -1,7 +1,7 @@
 # SIGAA-UFC CLI
 
 ```
-Aplicação CLI que utiliza Puppeteer para navegar no site do SIGAA-UFC via uma interface de linha de comando
+Aplicação que utiliza Puppeteer para navegar no site do SIGAA-UFC via Linha de Comando (CLI)
 ```
 
 No momento, a aplicação oferece funcionalidade de baixar materiais PDF da turma diretamente para a pasta "Downloads" e abri-los
