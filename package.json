@@ -1,10 +1,10 @@
 {
-  "name": "cli-test",
+  "name": "sigaacli",
   "version": "1.0.0",
   "main": "src/index.js",
   "type": "module",
   "bin": {
-    "sigaacli": "./src/index.js"
+    "sigaacli": "src/index.js"
   },
   "scripts": {
     "start": "node src/index.js",
@@ -14,7 +14,7 @@
   "keywords": [],
   "author": "alisonpsufc",
   "license": "ISC",
-  "description": "",
+  "description": "SIGAA-ufc em versao CLI",
   "dependencies": {
     "@inquirer/prompts": "^5.3.7",
     "@inquirer/select": "^2.4.7",
@@ -32,5 +32,16 @@
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisondeveloper/sigaa-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alisondeveloper/sigaa-cli/issues"
+  },
+  "homepage": "https://github.com/alisondeveloper/sigaa-cli#readme"
 }
